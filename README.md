@@ -12,7 +12,7 @@ Alguns pacotes como PyQt5, adb, scrcpy, python3 são necessários para que tudo 
 Você pode instalá-los em seu PC usando os seguintes comandos:
 
 ```
-# apt-get install snapd python3 python3-pip adb
+# apt-get install snapd python3-pip adb
 # snap install scrcpy
 $ pip3 install PyQt5
 ```
