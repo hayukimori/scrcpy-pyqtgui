@@ -7,6 +7,7 @@ P_NAME                = platform.system()
 INSTALL_PATH_LINUX    = HOME + '/.local/share/hayukiApps/scrcpy_gui/'
 ASSETS_FOLDER_LINUX   = INSTALL_PATH_LINUX + "assets/"
 DESKTOP_PATH_LINUX    = HOME + '/.local/share/applications/'
+SHELL_SCRIPT          = HOME + '/.local/bin/scrcpy_gui'
 DESKTOP_FILENAME      = 'scrcpy_gui'
 
 
@@ -50,12 +51,24 @@ def install_linux():
         print("Not OK")
 
 
+    # Make Shell
+    script_text = f'''#!/bin/bash\ncd {INSTALL_PATH_LINUX}/\npython3 main.py'''
+
+    with open(SHELL_SCRIPT, 'w') as ss:
+        ss.write(script_text)
+        ss.close
+        os.system(f"chmod +x {SHELL_SCRIPT}")
+
+
 def uninstall_linux():
     # Remove installation folder
     os.system(f"rm -rf {INSTALL_PATH_LINUX}")
 
     # Remove desktop file
     os.system(f"rm {DESKTOP_PATH_LINUX}{DESKTOP_FILENAME}.desktop")
+
+    # Remove shell script
+    os.system(f"rm {SHELL_SCRIPT}")
 
 
 
