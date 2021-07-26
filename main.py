@@ -1,53 +1,93 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
 
-#Bibliotecas: PyQt5, os (UNIX), PyGame
-import os, sys
+#Libs: PyQt5, os, PyGame, sys, re, subprocess
+import os, sys, subprocess, re
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
 
+# ==> Show error
+def err_h(details):
+    error_window.show()
+
+    if details == "no devices":
+        error_window.text.setText("No devices connected")
+    else:
+        error_window.text.setText(details)
+
+
+
+
+
+
+
+
+# ==> Get Devices & send to QComboBox
+
+def get_devices():
+
+    try:
+        cmd = "adb devices"
+        cmd_out = subprocess.check_output(cmd, shell=True).decode("UTF-8")
+
+        lines = cmd_out.split("\n")
+        devices = lines[1:]
+
+        for device in devices:
+            device = re.sub(r"\tdevice", "", device)
+
+            if len(device) > 1:
+                window.device.addItem(device)
+            else:
+                pass
+        
+
+
+        # If no devices connected, send error to err_h (Line 13)
+
+        if len(window.device) == 0:
+            print("No devices connected")
+            err_h("no devices")
+        
+
+    # if something goes wrong, send the error to "err_h()" (Line 13)
+    except Exception as e:
+        exceptionString = str(e)
+        err_h(exceptionString)
+
+
+
+
+# ==> Show Window & call get_devices function
 def main():
-    janela.show()
+    window.show()
 
-    # OBTER DISPOSITIVOS
-    os.system("adb devices >> /tmp/adb_devices_tmp.hy")
+    while len(window.device) > 0:
+        window.device.removeItem(0)
 
-    arquivo = open("/tmp/adb_devices_tmp.hy").readlines()
-    lines = arquivo[1:]
-
-
-    for line in lines:
-        corte_caracteres = line.split("\t", 1)
-
-        aparelho = corte_caracteres[0]
-
-        mod_aparelho = aparelho.replace('\t', '')
-        mod = mod_aparelho.replace('\n', '')
-
-        print(mod)
-        janela.device.addItem(mod)
-
-    #current_text = janela.comboBox.currentText()
-    #print(f"\n\n{current_text}")
-    os.system("rm /tmp/adb_devices_tmp.hy")
+    get_devices()    
+    
 
 
+
+
+
+# ==> This is the real main function, When "Start" button is pressed, this function will get all window values & send to scrcpy
 def start():
-
-    code = "scrcpy "
-
-    # Pegando resultados
-    device      = janela.device.currentText()
-    bitrate     = janela.bitrate.currentText()
-    fps         = janela.fps.text()
-    fullscreen  = janela.fullscreen.isChecked()
-    view_only   = janela.view_only.isChecked()
-    borderless  = janela.borderless.isChecked()
+    device      = window.device.currentText()
+    resolution	= window.resolution.text()
+    bitrate     = window.bitrate.currentText()
+    fps         = window.fps.text()
+    fullscreen  = window.fullscreen.isChecked()
+    view_only   = window.view_only.isChecked()
+    borderless  = window.borderless.isChecked()
 
 
-    # Aicionando resultados ao launcher
+    code = 'scrcpy '
+
+
     if (fullscreen == True):
         code = code + "--fullscreen "
     if (view_only == True):
@@ -55,30 +95,33 @@ def start():
     if (borderless == True):
         code = code + "--window-borderless "
 
-    total = f"{code} --serial {device} -b {bitrate} --max-fps={fps}&"
-    os.system(total)
+
+    
+    final_code = f"{code} --serial {device} -m {resolution} -b {bitrate} --max-fps={fps}&"
+    os.system(final_code)
 
 
-def minimize():
-    janela.showMinimized()
 
 
-# Definindo app e carregando janela(s)
 app = QtWidgets.QApplication([])
-janela = uic.loadUi("main.ui")
 
 
-# Função para deixar sem bordas e sem background (fundo)
-janela.setWindowFlags(Qt.FramelessWindowHint)
-janela.setAttribute(Qt.WA_TranslucentBackground);
+# Load Windows
+window = uic.loadUi("assets/main.ui")
+error_window = uic.loadUi("assets/error_window.ui")
 
 
-# Botões
-janela.exit.clicked.connect(sys.exit)
-janela.start.clicked.connect(start)
-janela.minimize.clicked.connect(minimize)
+# Setting functions to window(s) buttons
+window.start.clicked.connect(start)
+window.reload_btn.clicked.connect(main)
+error_window.ok_btn.clicked.connect(error_window.close)
 
+
+
+
+# ==> call the primary function
 if __name__ == '__main__':
     main()
+    
 
 app.exec()
