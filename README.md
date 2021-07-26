@@ -2,16 +2,15 @@
 
 Uma interfáce de usuário simples em PyQt5 para scrcpy
 
-Requisitos:
-- Python3
-- PyQt5
-- adb
-- scrcpy
 
 ## Atenção
 Os testes ocorreram apenas no Lubuntu 20.04. Pode não ser compatível com outras distribuições Linux ou Sistemas Operacionais, mas estarei tratando disso em alguns dias.
 
-Você pode instalá-los com
+### Requisitos
+
+Alguns pacotes como PyQt5, adb, scrcpy, python3 são necessários para que tudo funcione
+
+Você pode instalá-los em seu PC usando os seguintes comandos:
 
 ```
 # apt-get install snapd python3 python3-pip adb
@@ -38,6 +37,9 @@ Already installed in $HOME/.local/share/hayukiApps/scrcpy_gui/, uninstall? (Y/n)
 
 
 ## Uso
-Para executar o programa, pode utilizar o ícone que é criado no menu.
+Para executar o programa, pode utilizar o ícone que é criado no menu ou executar direto do terminal com
+```
+$ scrcpy_gui
+```
 
 ![](assets/image_interface.png)
