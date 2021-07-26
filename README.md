@@ -1,12 +1,15 @@
 # Scrcpy GUI
 
-Uma interfáce de usuário relativamente simples em PyQt5
+Uma interfáce de usuário simples em PyQt5 para scrcpy
 
-Requerimentos:
+Requisitos:
 - Python3
 - PyQt5
 - adb
 - scrcpy
+
+## Atenção
+Os testes ocorreram apenas no Lubuntu 20.04. Pode não ser compatível com outras distribuições Linux ou Sistemas Operacionais, mas estarei tratando disso em alguns dias.
 
 Você pode instalá-los com
 
