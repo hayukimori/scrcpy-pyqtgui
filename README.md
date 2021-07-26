@@ -10,10 +10,10 @@ Requerimentos:
 
 Você pode instalá-los com
 
-`sudo apt-get install snapd python3 python3-pip adb`
-`sudo snap install scrcpy`
+```# apt-get install snapd python3 python3-pip adb
+# snap install scrcpy
 
-`pip3 install PyQt5`
+$ pip3 install PyQt5```
 
 
 ### Instalação
