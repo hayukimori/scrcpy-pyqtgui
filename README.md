@@ -42,3 +42,13 @@ $ scrcpy_gui
 ```
 
 ![](assets/image_interface.png)
+
+
+## Solução de problemas
+
+Caso `scrcpy_gui` não inicie pelo terminal, verifique se `/home/usuario/.local/bin` está em $PATH, você pode verificar com `$ echo $PATH`
+
+Caso não esteja, você pode adicionar facilmente executando:
+```sh
+export PATH=$PATH:/home/{seu usuario}/.local/bin
+```
