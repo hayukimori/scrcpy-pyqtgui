@@ -67,6 +67,6 @@ Você pode adicionar o path da seguinte forma:
 
 
 No seu editor de texto preferido, adicione a seguinte linha no arquivo `~/.config/fish/config.fish`
-```
+```sh
 set -U fish_user_paths /home/{seu usuário}/.local/bin $fish_user_paths
 ```
