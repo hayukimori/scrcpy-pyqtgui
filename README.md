@@ -55,7 +55,18 @@ $ scrcpy_gui
 
 Caso `scrcpy_gui` não inicie pelo terminal, verifique se `/home/usuario/.local/bin` está em $PATH, você pode verificar com `$ echo $PATH`
 
-Caso não esteja, você pode adicionar facilmente executando:
+#### Bash padrão
+Casoo path não esteja, você pode adicionar facilmente executando:
 ```sh
 export PATH=$PATH:/home/{seu usuario}/.local/bin
+```
+
+#### Fish
+Se você estiver utilizando o `fish`, o caso é outro
+Você pode adicionar o path da seguinte forma:
+
+
+No seu editor de texto preferido, adicione a seguinte linha no arquivo `~/.config/fish/config.fish`
+```
+set -U fish_user_paths /home/{seu usuário}/.local/bin $fish_user_paths
 ```
