@@ -21,9 +21,6 @@ def err_h(details):
 
 
 
-
-
-
 # ==> Get Devices & send to QComboBox
 
 def get_devices():
@@ -38,8 +35,14 @@ def get_devices():
         for device in devices:
             device = re.sub(r"\tdevice", "", device)
 
+            
+
             if len(device) > 1:
-                window.device.addItem(device)
+                if "offiline" in device:
+                    err_h("Device offline, try to reconnect device.")
+                    pass
+                else:
+                    window.device.addItem(device)
             else:
                 pass
         
@@ -69,7 +72,12 @@ def main():
 
     get_devices()    
     
+def advanced_mode_on():
+    window.normal_advanced.setCurrentIndex(1)
 
+
+def advanced_mode_off():
+    window.normal_advanced.setCurrentIndex(0)
 
 
 
@@ -83,6 +91,8 @@ def start():
     fullscreen  = window.fullscreen.isChecked()
     view_only   = window.view_only.isChecked()
     borderless  = window.borderless.isChecked()
+    render      = window.render.currentText()
+    add_args    = window.add_args.text()
 
 
     code = 'scrcpy '
@@ -96,9 +106,17 @@ def start():
         code = code + "--window-borderless "
 
 
-    
-    final_code = f"{code} --serial {device} -m {resolution} -b {bitrate} --max-fps={fps}&"
-    os.system(final_code)
+    try:
+        final_code = f'''{code} --serial {device} -m {resolution} -b {bitrate} --max-fps={fps} --render-driver="{render}" {add_args} &'''
+        os.system(final_code)
+
+    except Exception as e:
+        err_h(str(e))
+        raise e
+
+
+
+    #os.system(final_code)
 
 
 
@@ -114,6 +132,8 @@ error_window = uic.loadUi("assets/error_window.ui")
 # Setting functions to window(s) buttons
 window.start.clicked.connect(start)
 window.reload_btn.clicked.connect(main)
+window.advanced_mode.clicked.connect(advanced_mode_on)
+window.normal_mode.clicked.connect(advanced_mode_off)
 error_window.ok_btn.clicked.connect(error_window.close)
 
 

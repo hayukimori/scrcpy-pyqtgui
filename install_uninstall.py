@@ -14,19 +14,31 @@ DESKTOP_FILENAME      = 'scrcpy_gui'
 a_files = ['error_window.ui', 'main.ui', 'reload_btn.png', 'sp_icon.png', 'spsize_icon.png']
 
 
+# Verify if Scrcpy GUI is installed
 def installation_exists_linux():
     if os.path.exists(INSTALL_PATH_LINUX) == True:
-        return True
+
+        q = input(f"Already installed in {INSTALL_PATH_LINUX}, uninstall? (Y/n) ")
+        if q.lower() == 'n':
+            sys.exit()
+
+        else:
+            uninstall_linux()
+            sys.exit()
+
     else:
-        return False
+        pass
 
 
 def install_linux():
 
     # => Make install folder
+
     print(f"[INFO] Installing in {INSTALL_PATH_LINUX}")
     os.system(f"mkdir -p {INSTALL_PATH_LINUX}")
     os.system(f"mkdir -p {ASSETS_FOLDER_LINUX}")
+
+
 
     # => Move assets files to path
     print("[INFO] Moving files")
@@ -34,6 +46,8 @@ def install_linux():
     for f in a_files:
         os.system(f"cp assets/{f} {ASSETS_FOLDER_LINUX}")
     os.system(f"cp main.py install_uninstall.py {INSTALL_PATH_LINUX}")
+
+
 
     # => Create Desktop File
     print("[INFO] attaching to menu")
@@ -43,6 +57,8 @@ def install_linux():
         df.write(dfileText)
         df.close()
 
+
+
     # => Verify instalation
     folder_v = os.path.exists(INSTALL_PATH_LINUX)
     if folder_v == True:
@@ -51,7 +67,9 @@ def install_linux():
         print("Not OK")
 
 
-    # Make Shell
+
+
+    # => Make Shell
     script_text = f'''#!/bin/bash\ncd {INSTALL_PATH_LINUX}/\npython3 main.py'''
 
     with open(SHELL_SCRIPT, 'w') as ss:
@@ -60,14 +78,13 @@ def install_linux():
         os.system(f"chmod +x {SHELL_SCRIPT}")
 
 
+
+
 def uninstall_linux():
-    # Remove installation folder
+
+    # Remove installation folder, desktop and shell script
     os.system(f"rm -rf {INSTALL_PATH_LINUX}")
-
-    # Remove desktop file
     os.system(f"rm {DESKTOP_PATH_LINUX}{DESKTOP_FILENAME}.desktop")
-
-    # Remove shell script
     os.system(f"rm {SHELL_SCRIPT}")
 
 
@@ -79,20 +96,14 @@ def main():
     if P_NAME.lower() == "linux":
         try:
             # Check if is installed
-            if installation_exists_linux() == True:
-                q = input(f"Already installed in {INSTALL_PATH_LINUX}, uninstall? (Y/n) ")
-                if q.lower() == 'n':
-                    sys.exit()
+            installation_exists_linux()
 
-                else:
-                    uninstall_linux()
-
-            else:
-                install_linux()
+            install_linux()
 
         except Exception as e:
-            exceptionString = str(e)
-            raise e # Temporário, apenas para debug
+            exception_str = str(e)
+            with open('error_log.txt', 'a') as error_log:
+                error_log.write("\n\n" + exception_str)
 
     else:
         print("Operating system not supported yet")
