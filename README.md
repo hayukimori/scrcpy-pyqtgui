@@ -11,12 +11,19 @@ Os testes ocorreram apenas no Lubuntu 20.04. Pode não ser compatível com outra
 Alguns pacotes como PyQt5, adb, scrcpy, python3 são necessários para que tudo funcione
 Você pode instalá-los em seu PC usando os seguintes comandos:
 
-```
+#### Debian/Ubuntu
+```sh
 # apt-get install snapd python3-pip adb
 # snap install scrcpy
 $ pip3 install PyQt5
 ```
 
+#### Arch/Manajro
+```sh
+# pacman -S adb
+$ yay -S python3 python3-pip scrcpy
+$ pip3 install PyQt5
+```
 
 ### Instalação
 Para instalar o programa, basta rodar o script "installer_uninstaller.py"
