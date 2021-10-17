@@ -2,10 +2,6 @@
 
 Uma interfáce de usuário simples em PyQt5 para scrcpy
 
-
-## Atenção
-Os testes ocorreram apenas no Lubuntu 20.04. Pode não ser compatível com outras distribuições Linux ou Sistemas Operacionais, mas estarei tratando disso em alguns dias.
-
 ## Pacotes, programas e instalação
 
 Alguns pacotes como PyQt5, adb, scrcpy, python3 são necessários para que tudo funcione
