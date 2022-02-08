@@ -12,6 +12,7 @@ Você pode instalá-los em seu PC usando os seguintes comandos:
 # apt-get install snapd python3-pip adb
 # snap install scrcpy
 $ pip3 install PyQt5
+$ pip3 install pure-python-adb
 ```
 
 #### Arch/Manajro
@@ -19,6 +20,7 @@ $ pip3 install PyQt5
 # pacman -S adb
 $ yay -S python3 python3-pip scrcpy
 $ pip3 install PyQt5
+$ pip3 install pure-python-adb
 ```
 
 ### Instalação
