@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*- 
 
-#Libs: PyQt5, os, sys, re, subprocess
+#Libs: PyQt5, os, sys, re, subprocess, pure-python-adb
 import os, sys, re, subprocess;
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtCore import *
