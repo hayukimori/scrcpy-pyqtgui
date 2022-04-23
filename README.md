@@ -17,7 +17,7 @@ $ pip3 install pure-python-adb
 
 #### Arch/Manajro
 ```sh
-# pacman -S adb
+$ yay -S android-tools
 $ yay -S python3 python3-pip scrcpy
 $ pip3 install PyQt5
 $ pip3 install pure-python-adb
