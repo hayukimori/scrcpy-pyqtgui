@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*- 
 
-#Libs: PyQt5, os, sys, re, subprocess, pure-python-adb
+#Libs: PyQt5, os, sys, re, subprocess
 import os, sys, re, subprocess;
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from ppadb.client import Client as AdbClient
+
+
+# Activate adb
+adb_start = os.system("adb devices")
 
 
 adb = AdbClient(host="127.0.0.1", port=5037)
@@ -65,7 +69,6 @@ class MainProgram:
             ErrH(error_str=str(e))
             #raise e
 
-
 class ErrH:
     def __init__(self, error_str=None):
         self.error_str = error_str
@@ -81,7 +84,6 @@ class ErrH:
     def showError(self, error_str):
         error_window.show()
         error_window.text.setText(self.error_str)
-
 
 class WindowManager:
     def advanced_mode_on():
