@@ -33,12 +33,6 @@ $ python3 install_uninstall.py
 ### Desinstalação
 Para desinstalar, basta rodar o mesmo script de instalação
 
-```sh
-$ python3 install_uninstall.py
-
-Already installed in $HOME/.local/share/hayukiApps/scrcpy_gui/, uninstall? (Y/n)
-```
-
 
 ## Uso
 Para executar o programa, pode utilizar o ícone que é criado no menu ou executar direto do terminal com
