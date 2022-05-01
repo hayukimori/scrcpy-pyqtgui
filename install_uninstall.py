@@ -18,7 +18,7 @@ glb_ldai = linux_default_appbase_instalation_path
 glb_laf = linux_default_assets_folder
 glb_ldsc = linux_default_shell_script
 glb_ddp = linux_default_desktop_path
-a_files = ['error_window.ui', 'main.ui', 'reload_btn.png', 'sp_icon.png', 'spsize_icon.png']
+a_files = ['error_window.ui', 'main.ui', 'reload_btn.png', 'configure.png', 'user-home-symbolic.png']
 
 
 

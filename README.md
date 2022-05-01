@@ -1,46 +1,53 @@
 # Scrcpy GUI
+Uma interface em Qt5 para scrcpy;
 
-Uma interfáce de usuário simples em PyQt5 para scrcpy
+![](demo.png)
 
 ## Pacotes, programas e instalação
+Alguns pacotes são necessários para o funcionamento de programa, e podem ser instalados com os seguintes comandos:
 
-Alguns pacotes como PyQt5, adb, scrcpy, python3 são necessários para que tudo funcione
-Você pode instalá-los em seu PC usando os seguintes comandos:
 
-#### Debian/Ubuntu
+#### Ubuntu/Debian
+
 ```sh
-# apt-get install snapd python3-pip adb
-# snap install scrcpy
-$ pip3 install PyQt5
-$ pip3 install pure-python-adb
+$ sudo apt-get install snapd python3-pip adb
+$ sudo snap isntall scrcpy
+$ pip3 install PyQt5 pure-python-adb
 ```
 
-#### Arch/Manajro
+
+#### Arch/Manjaro
+(NOTA: Tanto PARU quanto YAY pode ser utilizado neste processo, caso tenha algum dos dois instalado. Neste caso, estarei utilizando Paru como exemplo)
+
 ```sh
-$ yay -S android-tools
 $ yay -S python3 python3-pip scrcpy
-$ pip3 install PyQt5
-$ pip3 install pure-python-adb
+$ sudo pacman -S android-tools
+$ pip3 install PyQt5 pure-python-adb
 ```
+
 
 ### Instalação
-Para instalar o programa, basta rodar o script "installer_uninstaller.py"
 
+#### Linux
+Para fazer a instalação em distros linux, basta rodar o script `install_uninstall.py` e seguir os passos.
+Deixo avisado que a instalação desta versão ocorrerá num diretório diferente. Ficará no `/home/{seu_usuário}/.local/share/HayukiApps/`
+
+Aviso aqui também que os comandos _devem_ ser executados dentro da pasta;
 ```sh
-$ python3 install_uninstall.py
+$ python install_uninstall.py
 ```
 
-### Desinstalação
-Para desinstalar, basta rodar o mesmo script de instalação
+#### Windows
+Infelizmente o instalador ainda não está pronto para o Windows, estarei desenvolvendo em breve. Mas creio que o programa funcione bem se estiver com todas as dependências e se `adb.exe` e `scrcpy.exe` estiverem no PATH do Windows
 
 
 ## Uso
-Para executar o programa, pode utilizar o ícone que é criado no menu ou executar direto do terminal com
-```
+Para lançar o programa, pode utilizar o ícone que é criado após a instalação (linux), ou iniciar através do terminal pelo seguinte comando;
+
+```sh
 $ scrcpy_gui
 ```
 
-![](assets/image_interface.png)
 
 
 ## Solução de problemas
@@ -62,3 +69,6 @@ No seu editor de texto preferido, adicione a seguinte linha no arquivo `~/.confi
 ```sh
 set -U fish_user_paths /home/{seu usuário}/.local/bin $fish_user_paths
 ```
+
+## Outros problemas
+Caso seu problema não seja o de cima, você pode abrir uma issue.
