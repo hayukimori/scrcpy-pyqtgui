@@ -1593,7 +1593,7 @@ QCheckBox::indicator::checked
 }</string>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;* If you're using Windows, is recommended to use 'direct3d' render driver&lt;br/&gt;* In Game Mode, OTG tag is automatically launched with scrcpy args, to deactive this, click &amp;quot;No OTG&amp;quot;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;* If you're using Windows, is recommended to use 'direct3d' render driver&lt;br/&gt;* In Game Mode, OTG tag is automatically launched with scrcpy args, to disable this, click &amp;quot;No OTG&amp;quot;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
          <widget class="QPushButton" name="game_reload_btn">
