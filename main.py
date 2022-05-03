@@ -81,7 +81,7 @@ class MainProgram:
 				code = code + '--window borderless' + space
 
 
-			final_code = f'''{code} --serial {device} -b {bitrate} --render-driver="{render} -K -M"''' + nobrake
+			final_code = f'''{code} -K -M --serial {device} -b {bitrate} --render-driver="{render} "''' + nobrake
 			os.system(final_code)
 
 		except Exception as e:
