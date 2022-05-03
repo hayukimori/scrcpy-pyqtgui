@@ -5,10 +5,13 @@
 ![PyQt5 Ver](https://img.shields.io/badge/PyQt5-5.15.6-blue?style=flat-square)
 ![PPADB Ver](https://img.shields.io/badge/ppadb-0.3.0.dev0-blue?style=flat-square)
 
+
+
 Scrcpy PyQtGUI is a Qt5 frontend to ease the use of scrcpy (currently run via command line).
 
 By not having access to the output of Scrcpy, there is the possibility of errors that do not appear on the screen or total crash in the interface (in case of running via Windows cmd)
 
+**Versão PT-BR: [README_PT-BR.md](README_PT-BR.md)**
 ![Demo](demo.png)
 
 ## Preparation and installation
