@@ -1,9 +1,17 @@
 # Scrcpy GUI
-Uma interface em Qt5 para scrcpy;
+> Interface simples em Qt5 para o scrcpy
 
-![Demonstraç](demo.png)
+![Python Ver](https://img.shields.io/badge/Python-3.10-blue?style=flat-square)
+![PyQt5 Ver](https://img.shields.io/badge/PyQt5-5.15.6-blue?style=flat-square)
+![PPADB Ver](https://img.shields.io/badge/ppadb-0.3.0.dev0-blue?style=flat-square)
 
-## Pacotes, programas e instalação
+Scrcpy PyQtGUI é uma interface em Qt5 para facilitar o uso do Scrcpy (atualmente executado via linha de comando).
+
+Por não ter acesso ao output do Scrcpy, há a possibilidade de ocorrer erros que não apareçam na tela ou travamento total da interface (no caso de rodar via cmd do Windows)
+
+![Demo](demo.png)
+
+## Preparação e Instalação
 Alguns pacotes são necessários para o funcionamento de programa, e podem ser instalados com os seguintes comandos:
 
 
@@ -70,5 +78,12 @@ No seu editor de texto preferido, adicione a seguinte linha no arquivo `~/.confi
 set -U fish_user_paths /home/{seu usuário}/.local/bin $fish_user_paths
 ```
 
-## Outros problemas
-Caso seu problema não seja o de cima, você pode abrir uma issue.
+##### Outros problemas
+Caso seu problema não seja o de cima, você pode [abrir uma issue](https://github.com/hayukimori/scrcpy-pyqtgui/issues/new).
+
+
+
+
+## Sobre
+
+Código e layout por _Ana Beatriz_ ([@hayukimori](https://twitter.com/hayukimori/))
