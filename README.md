@@ -73,7 +73,7 @@ set -U fish_user_paths /home/{your user}/.local/bin $fish_user_paths
 
 ##### Other problems
 
-If the problem is not the one above, you can [open an issue](https://github.com/hayukimori/scrcpy-pyqtgui/issues/new).
+If the problem is not the one above, you can [open an issue](https://github.com/hayukimori/scrcpy-pyqtgui/issues/new). (PT BR or English)
 
 ## About
 
