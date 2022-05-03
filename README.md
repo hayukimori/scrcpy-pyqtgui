@@ -1,7 +1,7 @@
 # Scrcpy GUI
 Uma interface em Qt5 para scrcpy;
 
-![](demo.png)
+![Demonstraç](demo.png)
 
 ## Pacotes, programas e instalação
 Alguns pacotes são necessários para o funcionamento de programa, e podem ser instalados com os seguintes comandos:
