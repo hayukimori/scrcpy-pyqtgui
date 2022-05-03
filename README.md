@@ -11,7 +11,7 @@ Alguns pacotes são necessários para o funcionamento de programa, e podem ser i
 
 ```sh
 $ sudo apt-get install snapd python3-pip adb
-$ sudo snap isntall scrcpy
+$ sudo snap install scrcpy
 $ pip3 install PyQt5 pure-python-adb
 ```
 
