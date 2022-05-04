@@ -37,7 +37,7 @@ $ pip3 install PyQt5 pure-python-adb
 ```
 
 
-### Instalation
+### Installation
 To install on linux distros, just run the `install_uninstall.py` script.
 I warn you that the installation of this version will take place in a different directory. It will be in `/home/{your_username}/.local/share/HayukiApps/`
 
