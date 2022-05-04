@@ -50,7 +50,7 @@ $ python install_uninstall.py
 #### Windows
 Unfortunately the installer is not ready for Windows yet, I will be developing it soon. But I think the program works fine if it has all dependencies and if `adb.exe` and `scrcpy.exe` are in the Windows PATH
 
-## Problems solution
+## Common problems
 
 If `scrcpy_gui` doesn't start from terminal, check if `/home/user/.local/bin` is in $PATH, you can check with `$ echo $PATH`
 
