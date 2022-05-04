@@ -62,7 +62,7 @@ export PATH=$PATH:/home/{your username}/.local/bin
 ```
 
 #### Fish
-If you are using `fish`, the case is different.
+If you are using `fish`, it's a different case.
 You can add the path as follows:
 
 In your favorite text editor, add the following line to the `~/.config/fish/config.fish` file
