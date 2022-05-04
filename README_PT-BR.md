@@ -25,7 +25,7 @@ $ pip3 install PyQt5 pure-python-adb
 
 
 #### Arch/Manjaro
-(NOTA: Tanto PARU quanto YAY pode ser utilizado neste processo, caso tenha algum dos dois instalado. Neste caso, estarei utilizando Paru como exemplo)
+(NOTA: Tanto PARU quanto YAY pode ser utilizado neste processo, caso tenha algum dos dois instalado. Neste caso, estarei utilizando YAY como exemplo)
 
 ```sh
 $ yay -S python3 python3-pip scrcpy
